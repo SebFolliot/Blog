@@ -22,7 +22,7 @@ class ConnexionController extends BackController
       }
       else
       {
-        $this->app->user()->setFlash('Le pseudo ou le mot de passe est incorrect.');
+        $this->app->user()->setFlash('<p class="text-warning" style="text-align: center"><strong><i class="fas fa-exclamation fa-spin"></i><span style="margin-left: 15px"></span>Le login ou le mot de passe est incorrect.</strong></p>');
       }
     }
   }

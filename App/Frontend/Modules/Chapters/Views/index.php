@@ -5,9 +5,9 @@
     </div>
 </section>
 
-    <aside class="col-md-8; col-sm-10; col-xs-12" style="text-align: center; margin-bottom: 20px">
+    <aside class="col-md-8; col-sm-10; col-xs-12" style="text-align: center; margin-bottom: 20px; font-size: 20px">
         <div class="img-thumbnail" style="text-align: left; background-color: rgba(255,255,255,0.3)">
-            <p>Bonjour et bienvenue sur mon blog.</p>
+            <p style="text-align: center; font-size: 30px">Bonjour et bienvenue sur mon blog</p>
             <p>Retrouvez mon tout nouveau roman <strong>Billet simple pour l'Alaska</strong> que je diffuse chapitre par chapitre.<br></p>
             <p>Bonne lecture.<br>
                <em>Jean Forteroche</em>

@@ -36,11 +36,26 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
             <link rel="stylesheet" href="/css/style.css" type="text/css" />
 
+            <!-- style css -->
             <style>
                 body {
-                    background-color: aliceblue;
-                    font-size: 16px;
-                    font-family: arial, sans-serif;
+                     background-color: aliceblue;
+                     font-size: 16px;
+                     font-family: arial, sans-serif;
+                }
+                header {
+                        margin-bottom: 100px;
+                }
+
+                hr {
+                    border: 1px blue solid;
+                }
+
+                #feature {
+                    border: 1px silver solid;
+                }
+                footer {
+                    margin-top: 80px;
                 }
             </style>
 

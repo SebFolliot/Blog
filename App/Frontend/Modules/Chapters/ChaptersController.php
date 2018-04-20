@@ -15,8 +15,10 @@ class ChaptersController extends BackController
     $nombreChapters = $this->app->config()->get('nombre_chapters');
     $nombreCaracteres = $this->app->config()->get('nombre_caracteres');
  
-    $this->page->addVar('title', 'Liste des '.$nombreChapters.' derniers chapitres');
+    // On ajoute une définition pour le titre.
+    $this->page->addVar('title', 'Blog de Jean Forteroche');
  
+    // On récupère le manager des chapitres.
     $manager = $this->managers->getManagerOf('Chapters');
  
     $listeChapters = $manager->getList(0, $nombreChapters);
@@ -32,6 +34,7 @@ class ChaptersController extends BackController
       }
     }
  
+    // On ajoute la variable $listeChapters à la vue.
     $this->page->addVar('listeChapters', $listeChapters);
   } 
  
@@ -47,11 +50,12 @@ class ChaptersController extends BackController
     $this->page->addVar('title', $chapters->titre());
     $this->page->addVar('chapters', $chapters);
     $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListOf($chapters->id()));
+    
   }
  
   public function executeInsertComment(HTTPRequest $request)
   {
-    
+    // Si le formulaire a été envoyé.
     if ($request->method() == 'POST')
     {
       $comment = new Comment([

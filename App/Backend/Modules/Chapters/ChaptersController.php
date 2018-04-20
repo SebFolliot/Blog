@@ -16,7 +16,7 @@ class ChaptersController extends BackController
     $chaptersId = $request->getData('id');
  
     $this->managers->getManagerOf('Chapters')->delete($chaptersId);
-    $this->managers->getManagerOf('Comments')->deleteFromNews($chaptersId);
+    $this->managers->getManagerOf('Comments')->deleteFromChapters($chaptersId);
  
     $this->app->user()->setFlash('Le chapitre a bien été supprimé !');
  
@@ -107,7 +107,7 @@ class ChaptersController extends BackController
     }
     else
     {
-      
+      // L'identifiant du chapitre est transmis si on veut le modifier
       if ($request->getExists('id'))
       {
         $chapters = $this->managers->getManagerOf('Chapters')->getUnique($request->getData('id'));

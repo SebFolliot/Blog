@@ -5,11 +5,9 @@
                 <h2>Ajouter un commentaire</h2>
             </legend>
             <fieldset>
-
                 <?= $form ?>
-
-                    <br />
-                    <button class="btn" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> ENVOYER</button>
+                <br />
+                <button class="btn" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> ENVOYER</button>
             </fieldset>
         </form>
     </section>

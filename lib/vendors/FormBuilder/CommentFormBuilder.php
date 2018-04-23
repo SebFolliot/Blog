@@ -15,7 +15,6 @@ class CommentFormBuilder extends FormBuilder
     $this->form->add(new StringField([
         'label' => 'Votre pseudo :',
         'name' => 'auteur',
-        'placeholder' => 'Pseudo',
         'maxLength' => 30,
         'validators' => [
           new MaxLengthValidator('<p class="text-warning">L\'auteur spécifié est trop long (30 caractères maximum)</p>', 30),
@@ -25,7 +24,6 @@ class CommentFormBuilder extends FormBuilder
        ->add(new TextField([
          'label' => 'Votre message :',
         'name' => 'contenu',
-        'placeholder' => 'Votre commentaire',
         'rows' => 5,
         'cols' => 50,
         'validators' => [

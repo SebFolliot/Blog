@@ -11,7 +11,7 @@ abstract class Field
   protected $name;
   protected $validators = [];
   protected $value;
-  protected $placeholder;    
+  protected $id;    
  
   public function __construct(array $options = [])
   {
@@ -62,7 +62,7 @@ abstract class Field
     return $this->value;
   }
     
-  public function placeholder()
+  public function id()
   {
     return $this->value;
   }
@@ -74,14 +74,14 @@ abstract class Field
       $this->label = $label;
     }
   }
-    
-    public function setPlaceholder($placeholder)
+ 
+  public function setId($id)
   {
-    if (is_string($placeholder))
+    if (is_string($id))
     {
-      $this->placeholder = $placeholder;
+      $this->id = $id;
     }
-  }
+  }  
  
   public function setLength($length)
   {

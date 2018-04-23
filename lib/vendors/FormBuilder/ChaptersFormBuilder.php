@@ -15,28 +15,30 @@ class ChaptersFormBuilder extends FormBuilder
     $this->form->add(new StringField([
         'label' => 'Auteur',
         'name' => 'auteur',
+        'value' => 'Jean Forteroche',
         'maxLength' => 30,
         'validators' => [
-          new MaxLengthValidator('L\'auteur spécifié est trop long (30 caractères maximum)', 30),
-          new NotNullValidator('Merci de spécifier l\'auteur du chapitre'),
-        ],
+          new MaxLengthValidator('L\'auteur indiqué est trop long (30 caractères maximum)', 30),
+          new NotNullValidator('Merci d\'indiquer l\'auteur du chapitre'),
+        ], 
        ]))
        ->add(new StringField([
         'label' => 'Titre',
         'name' => 'titre',
         'maxLength' => 100,
         'validators' => [
-          new MaxLengthValidator('Le titre spécifié est trop long (100 caractères maximum)', 100),
-          new NotNullValidator('Merci de spécifier le titre du chapitre'),
+          new MaxLengthValidator('Le titre est trop long (100 caractères maximum)', 100),
+          new NotNullValidator('Merci de donner un titre au chapitre'),
         ],
        ]))
        ->add(new TextField([
         'label' => 'Contenu',
         'name' => 'contenu',
+        'id' => 'jftextarea',
         'rows' => 8,
         'cols' => 60,
         'validators' => [
-          new NotNullValidator('Merci de spécifier le contenu du chapitre'),
+          new NotNullValidator('Merci d\'apporter un contenu au chapitre'),
         ],
        ]));
   }

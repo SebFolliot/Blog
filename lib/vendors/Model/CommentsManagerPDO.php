@@ -25,7 +25,7 @@ class CommentsManagerPDO extends CommentsManager
       throw new \InvalidArgumentException('L\'identifiant du chapitre passé doit être un nombre entier valide');
     }
     
-    $q = $this->dao->prepare('SELECT id, chapters, auteur, contenu, date FROM comments WHERE chapters = :chapters ORDER BY date DESC');
+    $q = $this->dao->prepare('SELECT id, chapters, auteur, contenu, report, date FROM comments WHERE chapters = :chapters ORDER BY date DESC');
     $q->bindValue(':chapters', $chapters, \PDO::PARAM_INT);
     $q->execute();
     
@@ -43,7 +43,8 @@ class CommentsManagerPDO extends CommentsManager
     
     protected function modify(Comment $comment)
   {
-    $q = $this->dao->prepare('UPDATE comments SET auteur = :auteur, contenu = :contenu WHERE id = :id');
+    // suite à la modération du commentaire on indique que report prend la valeur 0 afin que le commentaire n'apparaisse plus signalé   
+    $q = $this->dao->prepare('UPDATE comments SET auteur = :auteur, contenu = :contenu, report = 0 WHERE id = :id');
     
     $q->bindValue(':auteur', $comment->auteur());
     $q->bindValue(':contenu', $comment->contenu());
@@ -51,10 +52,17 @@ class CommentsManagerPDO extends CommentsManager
     
     $q->execute();
   }
-  
+    
+    // Fonction permettant de "signaler" un commentaire
+    
+  public function reporting($id)
+  {
+    $this->dao->exec('UPDATE comments SET report = 1 WHERE id = '.(int) $id); 
+  }
+    
   public function get($id)
   {
-    $q = $this->dao->prepare('SELECT id, chapters, auteur, contenu FROM comments WHERE id = :id');
+    $q = $this->dao->prepare('SELECT id, chapters, auteur, contenu, report FROM comments WHERE id = :id');
     $q->bindValue(':id', (int) $id, \PDO::PARAM_INT);
     $q->execute();
     

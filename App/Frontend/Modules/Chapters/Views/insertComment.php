@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="padding-bottom: 200px">
     <section class="col-sm-8 col-md-12">
         <form class="well" action="" method="post">
             <legend>
@@ -6,12 +6,9 @@
             </legend>
             <fieldset>
                 <?= $form ?>
-                <br />
-                <button class="btn" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> ENVOYER</button>
+                    <br />
+                    <button class="btn" type="submit"><span class="glyphicon glyphicon-ok-sign"></span>ENVOYER</button>
             </fieldset>
         </form>
     </section>
 </div>
-
-
-

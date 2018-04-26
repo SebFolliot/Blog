@@ -58,7 +58,7 @@ class ChaptersController extends BackController
  
   public function executeUpdateComment(HTTPRequest $request)
   {
-    $this->page->addVar('title', 'Modification d\'un commentaire');
+    $this->page->addVar('title', 'Modération d\'un commentaire');
  
     if ($request->method() == 'POST')
     {
@@ -82,7 +82,7 @@ class ChaptersController extends BackController
  
     if ($formHandler->process())
     {
-      $this->app->user()->setFlash('Le commentaire a bien été modifié');
+      $this->app->user()->setFlash('Le commentaire a bien été modéré.');
  
       $this->app->httpResponse()->redirect('/admin/');
     }
@@ -107,7 +107,7 @@ class ChaptersController extends BackController
     }
     else
     {
-      // L'identifiant du chapitre est transmis si on veut le modifier
+      
       if ($request->getExists('id'))
       {
         $chapters = $this->managers->getManagerOf('Chapters')->getUnique($request->getData('id'));

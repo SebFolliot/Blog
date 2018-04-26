@@ -5,8 +5,11 @@ use \Fram\BackController;
 use \Fram\HTTPRequest;
 use \Entity\Comment;
 use \FormBuilder\CommentFormBuilder;
+use \FormBuilder\ReportFormBuilder;
 use \Fram\FormHandler;
- 
+
+
+
 class ChaptersController extends BackController
 {
     
@@ -50,7 +53,7 @@ class ChaptersController extends BackController
     $this->page->addVar('title', $chapters->titre());
     $this->page->addVar('chapters', $chapters);
     $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListOf($chapters->id()));
-    
+
   }
  
   public function executeInsertComment(HTTPRequest $request)
@@ -87,4 +90,15 @@ class ChaptersController extends BackController
     $this->page->addVar('form', $form->createView());
     $this->page->addVar('title', 'Ajout d\'un commentaire');
   }
+    
+    // signaler un commentaire
+    public function executeReportComment(HTTPRequest $request)
+    {
+    
+            $commentId = $request->getData('id');
+            $this->managers->getManagerOf('Comments')->reporting($commentId);
+            $this->app->user()->setFlash('<p id="info_report" style="text-align:center"></p>'); 
+            $this->app->httpResponse()->redirect('.');
+     }
 }
+

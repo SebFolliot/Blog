@@ -43,6 +43,13 @@ class ChaptersController extends BackController
  
   public function executeShow(HTTPRequest $request)
   {
+    $nombreChapters = $this->app->config()->get('nombre_chapters');
+    $manager = $this->managers->getManagerOf('Chapters');
+    $listeChapters = $manager->getList(0, $nombreChapters); 
+      
+    $this->page->addVar('listeChapters', $listeChapters);
+      
+      
     $chapters = $this->managers->getManagerOf('Chapters')->getUnique($request->getData('id'));
  
     if (empty($chapters))
@@ -58,6 +65,7 @@ class ChaptersController extends BackController
  
   public function executeInsertComment(HTTPRequest $request)
   {
+    $secret = $this->app->config()->get('secret_key');
     // Si le formulaire a été envoyé.
     if ($request->method() == 'POST')
     {
@@ -81,7 +89,7 @@ class ChaptersController extends BackController
  
     if ($formHandler->process())
     {
-      $this->app->user()->setFlash('Le commentaire a bien été ajouté !');
+      $this->app->user()->setFlash('<p id="info_comment" style="text-align:center"></p>');
  
       $this->app->httpResponse()->redirect('chapters-'.$request->getData('chapters').'.html');
     }
@@ -90,15 +98,13 @@ class ChaptersController extends BackController
     $this->page->addVar('form', $form->createView());
     $this->page->addVar('title', 'Ajout d\'un commentaire');
   }
-    
     // signaler un commentaire
     public function executeReportComment(HTTPRequest $request)
     {
-    
-            $commentId = $request->getData('id');
-            $this->managers->getManagerOf('Comments')->reporting($commentId);
-            $this->app->user()->setFlash('<p id="info_report" style="text-align:center"></p>'); 
-            $this->app->httpResponse()->redirect('.');
-     }
+        $commentId = $request->getData('id');
+        $this->managers->getManagerOf('Comments')->reporting($commentId);
+        $this->app->user()->setFlash('<p id="info_report" style="text-align:center"></p>'); 
+        $this->app->httpResponse()->redirect('.');
+    }
 }
 

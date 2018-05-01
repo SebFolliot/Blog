@@ -51,4 +51,17 @@ abstract class CommentsManager extends Manager
    * Méthode permettant de supprimer tous les commentaires liés à un chapitre
    */
   abstract public function deleteFromChapters($chapters);
+    
+        
+      /**
+   * Méthode permettant de signaler un commentaire.
+   */
+    
+  abstract protected function deleteReport($id);
+    
+          /**
+   * Méthode permettant de modérer un commentaire.
+   */
+    
+  abstract protected function moderate($id);
 }

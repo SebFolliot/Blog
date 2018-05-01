@@ -121,12 +121,13 @@
                 <ul class="nav navbar-nav">
                     <?php require('../lib/Fram/isActive.php'); ?>
                     <li <?=isActive( '/'); ?>> <a href="/"><i class="fa fa-home" aria-hidden="true" title="Accueil"></i></a></li>
-                    <li class="dropdown" <?=isActive( '/chapters-([0-9]+)\.html');?>> <a data-toggle="dropdown" href="">Chapitre<b class="caret"></b></a>
+                    <li <?=isActive('/chapters-' .$chapters['id'] .'.html'); ?>> <a data-toggle="dropdown" href="">Chapitre<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <?php
-                                        foreach ($listeChapters as $chapters) { ?>
+                            foreach ($listeChapters as $chapters) { ?>
+
                                 <li>
-                                    <a href="chapters-<?= $chapters['id'] ?>.html">
+                                    <a href="/chapters-<?= $chapters['id'] ?>.html">
                                         <?= $chapters['titre'] ?>
                                     </a>
                                 </li>

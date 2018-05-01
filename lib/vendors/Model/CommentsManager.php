@@ -26,11 +26,7 @@ abstract class CommentsManager extends Manager
     }
   }
     
-    /**
-   * Méthode permettant de modifier un commentaire.
-   */
-  abstract protected function modify(Comment $comment);
-    
+
     /**
    * Méthode permettant de signaler un commentaire.
    */

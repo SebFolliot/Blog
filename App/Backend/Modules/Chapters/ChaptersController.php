@@ -22,18 +22,10 @@ class ChaptersController extends BackController
  
     $this->app->httpResponse()->redirect('.');
   }
- 
-  public function executeDeleteComment(HTTPRequest $request)
-  {
-    $this->managers->getManagerOf('Comments')->delete($request->getData('id'));
- 
-    $this->app->user()->setFlash('Le commentaire a bien été supprimé !');
- 
-    $this->app->httpResponse()->redirect('.');
-  }
- 
+
   public function executeIndex(HTTPRequest $request)
   {
+ 
     $this->page->addVar('title', 'Gestion des chapitres');
  
     $manager = $this->managers->getManagerOf('Chapters');
@@ -41,9 +33,14 @@ class ChaptersController extends BackController
     $this->page->addVar('listeChapters', $manager->getList());
     $this->page->addVar('nombreChapters', $manager->count());
   }
+  
  
   public function executeInsert(HTTPRequest $request)
   {
+    $manager = $this->managers->getManagerOf('Chapters');
+ 
+    $this->page->addVar('listeChapters', $manager->getList());
+       
     $this->processForm($request);
  
     $this->page->addVar('title', 'Ajout d\'un chapitre');
@@ -55,41 +52,7 @@ class ChaptersController extends BackController
  
     $this->page->addVar('title', 'Modification d\'un chapitre');
   }
- 
-  public function executeUpdateComment(HTTPRequest $request)
-  {
-    $this->page->addVar('title', 'Modération d\'un commentaire');
- 
-    if ($request->method() == 'POST')
-    {
-      $comment = new Comment([
-        'id' => $request->getData('id'),
-        'auteur' => $request->postData('auteur'),
-        'contenu' => $request->postData('contenu')
-      ]);
-    }
-    else
-    {
-      $comment = $this->managers->getManagerOf('Comments')->get($request->getData('id'));
-    }
- 
-    $formBuilder = new CommentFormBuilder($comment);
-    $formBuilder->build();
- 
-    $form = $formBuilder->form();
- 
-    $formHandler = new FormHandler($form, $this->managers->getManagerOf('Comments'), $request);
- 
-    if ($formHandler->process())
-    {
-      $this->app->user()->setFlash('Le commentaire a bien été modéré.');
- 
-      $this->app->httpResponse()->redirect('/admin/');
-    }
- 
-    $this->page->addVar('form', $form->createView());
-  }
- 
+
   public function processForm(HTTPRequest $request)
   {
     if ($request->method() == 'POST')
@@ -107,7 +70,7 @@ class ChaptersController extends BackController
     }
     else
     {
-      
+      // L'identifiant du chapitre est transmis si on veut le modifier
       if ($request->getExists('id'))
       {
         $chapters = $this->managers->getManagerOf('Chapters')->getUnique($request->getData('id'));
@@ -134,4 +97,22 @@ class ChaptersController extends BackController
  
     $this->page->addVar('form', $form->createView());
   }
+    
+    // Annuler le signalement d'un commentaire
+    public function executeDeleteReport(HTTPRequest $request)
+    {
+            $commentId = $request->getData('id');
+            $this->managers->getManagerOf('Comments')->deleteReport($commentId);
+            $this->app->user()->setFlash('<p id="info_delete_report" style="text-align:center"></p>'); 
+            $this->app->httpResponse()->redirect('/admin/');
+    }
+    
+        // Modérer un commentaire
+    public function executeModerateComment(HTTPRequest $request)
+    {
+            $commentId = $request->getData('id');
+            $this->managers->getManagerOf('Comments')->moderate($commentId);
+            $this->app->user()->setFlash('<p id="info_moderate" style="text-align:center"></p>'); 
+            $this->app->httpResponse()->redirect('/admin/');
+    }
 }

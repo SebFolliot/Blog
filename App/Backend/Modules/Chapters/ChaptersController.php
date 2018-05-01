@@ -33,25 +33,33 @@ class ChaptersController extends BackController
     $this->page->addVar('listeChapters', $manager->getList());
     $this->page->addVar('nombreChapters', $manager->count());
   }
-  
+ 
  
   public function executeInsert(HTTPRequest $request)
   {
     $manager = $this->managers->getManagerOf('Chapters');
  
-    $this->page->addVar('listeChapters', $manager->getList());
-       
     $this->processForm($request);
+      
+    $chapters = $this->managers->getManagerOf('Chapters')->getUnique($request->getData('id'));
  
     $this->page->addVar('title', 'Ajout d\'un chapitre');
+    $this->page->addVar('chapters', $chapters);
+    $this->page->addVar('listeChapters', $manager->getList());  
   }
  
   public function executeUpdate(HTTPRequest $request)
   {
+    $manager = $this->managers->getManagerOf('Chapters');  
     $this->processForm($request);
+    
+    $chapters = $this->managers->getManagerOf('Chapters')->getUnique($request->getData('id'));  
  
     $this->page->addVar('title', 'Modification d\'un chapitre');
+    $this->page->addVar('chapters', $chapters);
+    $this->page->addVar('listeChapters', $manager->getList());  
   }
+ 
 
   public function processForm(HTTPRequest $request)
   {

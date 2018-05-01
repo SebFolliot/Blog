@@ -9,7 +9,8 @@ class Comment extends Entity
             $auteur,
             $contenu,
             $date,
-            $report;
+            $report,
+            $moderate;
     
 
   const AUTEUR_INVALIDE = 1;
@@ -73,11 +74,21 @@ class Comment extends Entity
     
   public function report()
   {
-        return $this->report;
+     return $this->report;
   }
     
   public function setReport($report)
   {
       $this->report = $report;
+  }
+    
+  public function moderate()
+  {
+     return $this->moderate;
+  }
+    
+  public function setModerate($moderate)
+  {
+      $this->moderate = $moderate;
   }
 }

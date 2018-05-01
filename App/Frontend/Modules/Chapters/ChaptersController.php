@@ -93,18 +93,24 @@ class ChaptersController extends BackController
  
       $this->app->httpResponse()->redirect('chapters-'.$request->getData('chapters').'.html');
     }
+      
  
     $this->page->addVar('comment', $comment);
     $this->page->addVar('form', $form->createView());
+    $chapters = $this->managers->getManagerOf('Chapters')->getUnique($request->getData('id'));  
+    $this->page->addVar('chapters', $chapters);  
     $this->page->addVar('title', 'Ajout d\'un commentaire');
   }
     // signaler un commentaire
     public function executeReportComment(HTTPRequest $request)
     {
-        $commentId = $request->getData('id');
-        $this->managers->getManagerOf('Comments')->reporting($commentId);
-        $this->app->user()->setFlash('<p id="info_report" style="text-align:center"></p>'); 
-        $this->app->httpResponse()->redirect('.');
+          
+            $commentId = $request->getData('id');
+            $this->managers->getManagerOf('Comments')->reporting($commentId);
+            $this->app->user()->setFlash('<p id="info_report" style="text-align:center"></p>'); 
+            $this->app->httpResponse()->redirect('.');
+        
+        
     }
 }
 

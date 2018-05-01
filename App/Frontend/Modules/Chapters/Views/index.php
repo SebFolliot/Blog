@@ -2,6 +2,9 @@
     footer {
         position: relative;
     }
+    img {
+        display: none !important;
+    }
 </style>
 <!-- script permettant d'afficher temporairement le message -->
 <script>

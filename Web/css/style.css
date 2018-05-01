@@ -1,0 +1,15 @@
+header {
+    margin-bottom: 60px;
+}
+
+hr {
+    border: 1px blue solid;
+}
+
+#feature {
+    border: 1px silver solid;
+}
+
+img {
+    float: right !important;
+}

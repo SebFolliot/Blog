@@ -38,10 +38,6 @@ abstract class CommentsManager extends Manager
    */
   abstract public function get($id);
     
-    /**
-   * Méthode permettant de supprimer un commentaire.
-   */
-  abstract public function delete($id);
     
      /**
    * Méthode permettant de supprimer tous les commentaires liés à un chapitre

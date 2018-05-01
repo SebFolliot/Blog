@@ -25,7 +25,7 @@ class CommentsManagerPDO extends CommentsManager
       throw new \InvalidArgumentException('L\'identifiant du chapitre passé doit être un nombre entier valide');
     }
     
-    $q = $this->dao->prepare('SELECT id, chapters, auteur, contenu, report, date FROM comments WHERE chapters = :chapters ORDER BY date DESC');
+    $q = $this->dao->prepare('SELECT id, chapters, auteur, contenu, report, moderate, date FROM comments WHERE chapters = :chapters ORDER BY date DESC');
     $q->bindValue(':chapters', $chapters, \PDO::PARAM_INT);
     $q->execute();
     
@@ -40,29 +40,24 @@ class CommentsManagerPDO extends CommentsManager
     
     return $comments;
   }
-    
-    protected function modify(Comment $comment)
-  {
-    // suite à la modération du commentaire on indique que report prend la valeur 0 afin que le commentaire n'apparaisse plus signalé   
-    $q = $this->dao->prepare('UPDATE comments SET auteur = :auteur, contenu = :contenu, report = 0 WHERE id = :id');
-    
-    $q->bindValue(':auteur', $comment->auteur());
-    $q->bindValue(':contenu', $comment->contenu());
-    $q->bindValue(':id', $comment->id(), \PDO::PARAM_INT);
-    
-    $q->execute();
-  }
-    
-    // Fonction permettant de "signaler" un commentaire
+  
+    // Fonction permettant de passer à 1 le booléen report
     
   public function reporting($id)
   {
     $this->dao->exec('UPDATE comments SET report = 1 WHERE id = '.(int) $id); 
   }
     
+    // Fonction permettant de passer à 0 le booléen report  
+  public function deleteReport($id)
+  {
+    $this->dao->exec('UPDATE comments SET report = 0 WHERE id = '.(int) $id); 
+  }  
+     
+  
   public function get($id)
   {
-    $q = $this->dao->prepare('SELECT id, chapters, auteur, contenu, report FROM comments WHERE id = :id');
+    $q = $this->dao->prepare('SELECT id, chapters, auteur, contenu, report, moderate FROM comments WHERE id = :id');
     $q->bindValue(':id', (int) $id, \PDO::PARAM_INT);
     $q->execute();
     
@@ -71,13 +66,19 @@ class CommentsManagerPDO extends CommentsManager
     return $q->fetch();
   }
     
-    public function delete($id)
+   public function delete($id)
   {
     $this->dao->exec('DELETE FROM comments WHERE id = '.(int) $id);
   }
     
-    public function deleteFromChapters($chapters)
+  public function deleteFromChapters($chapters)
   {
     $this->dao->exec('DELETE FROM comments WHERE chapters = '.(int) $chapters);
+  }
+  
+  // Fonction permettant de passer à 1 le booleen moderate    
+  public function moderate($id)
+  {
+    $this->dao->exec('UPDATE comments SET moderate = 1 WHERE id = '.(int) $id); 
   }
 }

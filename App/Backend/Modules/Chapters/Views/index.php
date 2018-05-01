@@ -1,4 +1,22 @@
 <!-- page index backend -->
+
+<!-- script permettant d'afficher temporairement le message -->
+<script>
+    document.getElementById("info_delete_report").innerHTML = "Le signalement du commentaire a été annulé !";
+
+    setTimeout(function() {
+        document.getElementById("info_delete_report").innerHTML = "";
+    }, 3000);
+</script>
+
+<script>
+    document.getElementById("info_moderate").innerHTML = "Le commentaire a bien été modéré !";
+
+    setTimeout(function() {
+        document.getElementById("info_moderate").innerHTML = "";
+    }, 3000);
+</script>
+
 <table class="table table-striped table-condensed">
     
     <div class="card-header" style="background-color:silver; color:white">

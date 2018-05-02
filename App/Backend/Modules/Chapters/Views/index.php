@@ -17,6 +17,20 @@
     }, 3000);
 </script>
 
+<!-- Boîte de dialogue afin de confirmer la suppression du chapitre -->
+<script>
+    
+    function delete_chapter(chapter) 
+    {
+        if(confirm("Voulez vous vraiment supprimer ce chapitre ?")) 
+        { 
+            location.href= 'chapters-delete-' + chapter + '.html';
+            alert('Le chapitre a bien été supprimé'); 
+        } 
+        return false;
+    }
+</script>
+
 <table class="table table-striped table-condensed">
     
     <div class="card-header" style="background-color:silver; color:white">
@@ -42,7 +56,7 @@
         <?php
         foreach ($listeChapters as $chapters)
         {
-          echo '<tr><td>', $chapters['auteur'], '</td><td>', $chapters['titre'], '</td><td>', $chapters['dateAjout']->format('d/m/Y à H\hi'), '</td><td>', ($chapters['dateAjout'] == $chapters['dateModif'] ? '-' :  $chapters['dateModif']->format('d/m/Y à H\hi')), '</td><td><a href="chapters-update-', $chapters['id'], '.html"><i class="fas fa-edit" title="Modifier"></i></a> <a href="chapters-delete-', $chapters['id'], '.html"><i class="fas fa-eraser" title="Supprimer"></i></a></td></tr>', "\n";
+          echo '<tr><td>', $chapters['auteur'], '</td><td>', $chapters['titre'], '</td><td>', $chapters['dateAjout']->format('d/m/Y à H\hi'), '</td><td>', ($chapters['dateAjout'] == $chapters['dateModif'] ? '-' :  $chapters['dateModif']->format('d/m/Y à H\hi')), '</td><td><a href="chapters-update-', $chapters['id'], '.html"><i class="fas fa-edit" title="Modifier"></i></a> <a onClick="delete_chapter(', $chapters['id'],')"<i class="fas fa-eraser" title="Supprimer"></i></a></td></tr>', "\n";
         }
         ?>
     </tbody>

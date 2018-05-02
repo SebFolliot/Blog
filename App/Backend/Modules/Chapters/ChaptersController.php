@@ -18,8 +18,6 @@ class ChaptersController extends BackController
     $this->managers->getManagerOf('Chapters')->delete($chaptersId);
     $this->managers->getManagerOf('Comments')->deleteFromChapters($chaptersId);
  
-    $this->app->user()->setFlash('Le chapitre a bien été supprimé !');
- 
     $this->app->httpResponse()->redirect('.');
   }
 

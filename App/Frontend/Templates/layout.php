@@ -120,14 +120,14 @@
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
                     <?php require('../lib/Fram/isActive.php'); ?>
-                    <li <?=isActive( '/'); ?>> <a href="/"><i class="fa fa-home" aria-hidden="true" title="Accueil"></i></a></li>
-                    <li <?=isActive('/chapters-' .$chapters['id'] .'.html'); ?>> <a data-toggle="dropdown" href="">Chapitre<b class="caret"></b></a>
+                    <li <?=isActive( '/'); ?>> <a href="/"><i class="fa fa-home" aria-hidden="true" title="Accueil"></i> Accueil</a></li>
+                    <li <?=isActive('/chapters-' .$chapters['id'] .'.html'); ?>><a data-toggle="dropdown" href="">Chapitre<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <?php
                             foreach ($listeChapters as $chapters) { ?>
 
                                 <li>
-                                    <a href="/chapters-<?= $chapters['id'] ?>.html">
+                                    <a href="/chapters-<?= $chapters['id'] ?>.html"><i class="fas fa-book"></i>
                                         <?= $chapters['titre'] ?>
                                     </a>
                                 </li>

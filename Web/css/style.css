@@ -99,4 +99,8 @@ header .fa-times,
     #text_field {
         width: auto !important;
     }
+    
+    .dropdown-menu {
+        font-size: 10px !important;
+    }
 }

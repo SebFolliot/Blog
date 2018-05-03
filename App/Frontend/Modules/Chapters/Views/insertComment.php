@@ -1,4 +1,4 @@
-<div class="container" style="padding-bottom: 200px">
+<div class="container" style="padding-bottom: 300px; padding-top: 50px">
     <section class="col-sm-8 col-md-12">
         <form class="well" action="" method="post">
             <legend>

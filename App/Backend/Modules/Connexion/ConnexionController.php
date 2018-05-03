@@ -28,4 +28,8 @@ class ConnexionController extends BackController
     $chapters = $this->managers->getManagerOf('Chapters')->getUnique($request->getData('id'));  
     $this->page->addVar('chapters', $chapters);
   }
+    $manager = $this->managers->getManagerOf('Chapters');
+    $chapters = $this->managers->getManagerOf('Chapters')->getUnique($request->getData('id'));
+    $this->page->addVar('chapters', $chapters);
+    $this->page->addVar('listeChapters', $manager->getList()); 
 }

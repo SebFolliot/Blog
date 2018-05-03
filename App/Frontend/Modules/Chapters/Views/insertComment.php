@@ -1,5 +1,5 @@
 <div class="container" style="padding-bottom: 300px; padding-top: 50px">
-    <section class="col-sm-8 col-md-12">
+    <section class="col-md-12">
         <form class="well" action="" method="post">
             <legend>
                 <h2>Ajouter un commentaire</h2>

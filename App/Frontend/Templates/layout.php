@@ -36,38 +36,44 @@
 
     <!-- style css -->
     <style>
+        html {
+            height: 100%;
+        }
+
         body {
             background-color: aliceblue;
             font-size: 16px;
             font-family: arial, sans-serif;
+            position: relative;
+         }
+        
+        footer {
+            position: absolute;
+            bottom: 0;
+        }
+        
+        * {
+            -moz-box-sizing: border-box; 
+            box-sizing: border-box;
         }
 
         header {
             margin-bottom: 100px;
         }
-
-        hr {
-            border: 1px blue solid;
-        }
-
-        #feature {
-            border: 1px silver solid;
-        }
-
-        footer {
-            margin-top: 80px;
-        }
-
-        #mceu_28 {
-            color: red;
-            border: 1px black solid;
+  
+        #mceu_28, #mceu_4 {
+            border: 1px #397385 solid;
             background-color: aliceblue;
         }
-
+        
+        #mceu_4 i {
+            background-color: yellow;
+        }
+        
         #mceu_39-body {
             border: 1px black lightgray;
         }
-
+        
         #mceu_39-body i {
             color: rgb(112, 146, 190);
         }
@@ -102,9 +108,14 @@
                     'margin': '0 10px 0 10px'
                 }
             }],
-            spellchecker_language: 'fr'
+            spellchecker_language: 'fr',
+            
+            mobile: {
+                theme: 'mobile',
+                plugins: ['autosave', 'lists', 'autolink'],
+                toolbar: ['undo', 'bold', 'italic', 'fontsizeselect']
+            }  
         });
-
     </script>
 
 </head>
@@ -115,10 +126,16 @@
     <header>
         <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #e3f2fd">
             <div class="container-fluid">
-                <ul class="nav navbar-nav">
+                <!-- case à cocher pour sélection du menu en barre -->
+                <input type="checkbox" id="menu_hamburger" name="menu_hamburger" />
+                <!-- icône menu hamburger font awesome -->
+                <label for="menu_hamburger"><i class="fa fa-bars" aria-hidden="true"></i></label>
+                <label for="menu_hamburger"><i class="fa fa-times" aria-hidden="true"></i></label>
+                <ul class="nav navbar-nav list_menu">
                     <?php require('../lib/Fram/isActive.php'); ?>
-                    <li <?=isActive( '/'); ?>> <a href="/"><i class="fa fa-home" aria-hidden="true" title="Accueil"></i> Accueil</a></li>
-                    <li <?=isActive('/chapters-' .$chapters['id'] .'.html'); ?>><a data-toggle="dropdown" href="">Chapitre<b class="caret"></b></a>
+
+                    <li <?=isActive( '/'); ?>><a href="/" title="Accueil"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a></li>
+                    <li <?=isActive('/chapters-' .$chapters['id'] .'.html'); ?>><a title="Chapitres" data-toggle="dropdown" href="">Chapitre<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <?php
                             foreach ($listeChapters as $chapters) { ?>
@@ -132,16 +149,16 @@
                         </ul>
                     </li>
                     <?php if ($user->isAuthenticated()) { ?>
-                    <li <?=isActive( '/admin/'); ?>> <a href="/admin/">Admin</a></li>
-                    <li <?=isActive( '/admin/chapters-insert.html'); ?>><a href="/admin/chapters-insert.html">Ajouter un chapitre</a></li>
+                    <li <?=isActive( '/admin/'); ?>> <a href="/admin/" title="Administration des chapitres">Admin</a></li>
+                    <li <?=isActive( '/admin/chapters-insert.html'); ?>><a href="/admin/chapters-insert.html" title="Ajouter un chapitre">Ajouter un chapitre</a></li>
                     <?php } ?>
                 </ul>
-                <ul class="nav navbar-nav pull-right" id="admin">
-                    <?php if ($user->isAuthenticated()) { ?>
-                    <li><a>Jean FORTEROCHE</a></li>
-                    <li><a href="../disconnect.php"><i class="fas fa-power-off" title="Se déconnecter"></i></a></li>
-                    <?php } ?>
-                </ul>
+     
+                <?php if ($user->isAuthenticated()) { ?>
+                <div style="display: flex; justify-content: flex-end"><span style="margin-right: 10px">Jean FORTEROCHE</span><a href="../disconnect.php"><i class="fas fa-power-off" title="Se déconnecter" style="color: grey"></i></a>
+                </div>
+                <?php } ?>
+               
             </div>
         </nav>
     </header>
@@ -161,6 +178,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/top.js"></script>
     <script type="text/javascript" src="../js/image.js"></script>
+    <script type="text/javascript" src="../js/hamburger_menu.js"></script>
 
 </body>
 

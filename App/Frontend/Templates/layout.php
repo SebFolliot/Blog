@@ -8,10 +8,7 @@
     </title>
 
     <meta charset="utf-8" />
-    <!--[if IE]>
-                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-                <![endif]-->
-
+    
     <!-- règle pour que le viewport mobile soit le même que la largeur de l'écran  -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- metatags -->
@@ -132,8 +129,6 @@
                                     </a>
                                 </li>
                                 <?php } ?>
-                                <li class="divider"></li>
-                                <li><a href="#">Autres infos</a></li>
                         </ul>
                     </li>
                     <?php if ($user->isAuthenticated()) { ?>

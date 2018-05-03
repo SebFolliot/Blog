@@ -98,7 +98,11 @@ class ChaptersController extends BackController
     $this->page->addVar('comment', $comment);
     $this->page->addVar('form', $form->createView());
     $chapters = $this->managers->getManagerOf('Chapters')->getUnique($request->getData('id'));  
-    $this->page->addVar('chapters', $chapters);  
+    $this->page->addVar('chapters', $chapters);
+    $nombreChapters = $this->app->config()->get('nombre_chapters');
+    $manager = $this->managers->getManagerOf('Chapters');
+    $listeChapters = $manager->getList(0, $nombreChapters);  
+    $this->page->addVar('listeChapters', $listeChapters);
     $this->page->addVar('title', 'Ajout d\'un commentaire');
   }
     // signaler un commentaire

@@ -1,5 +1,5 @@
 <footer style="width: 100%; height: 180px; background-color: grey">
-    <div style="margin: 40px; padding-top: 20px; border-bottom: 1px solid silver;display: flex; justify-content: space-between; color: white">
+    <div id="footer_title" style="margin: 40px; padding-top: 20px; border-bottom: 1px solid silver;display: flex; justify-content: space-between; color: white">
         <p><strong>BILLET SIMPLE POUR L'ALASKA</strong></p>
         <p><a target="_blank" href="https://www.facebook.com" style="color: white"><i class="fab fa-facebook-f" style="margin-right: 10px" title="Facebook"></i></a><a target="_blank" href="https://www.twitter.com" style="color: white"><i class="fab fa-twitter" style="margin-right: 10px" title="Twitter"></i></a><a target="_blank" href="https://www.googleplus.com" style="color: white"><i class="fab fa-google-plus-g" title="Google+"></i></a></p>
     </div>

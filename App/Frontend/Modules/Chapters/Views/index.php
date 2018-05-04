@@ -16,7 +16,7 @@
 </script>
 
 
-<section style="background: url('../images/train_alaska.jpg') no-repeat center; height:563px; color:white; margin-bottom: 20px">
+<section style="background: url('Web/images/train_alaska.jpg') no-repeat center; height:563px; color:white; margin-bottom: 20px">
     <div style="text-align:center">
         <p style="font-size:2em"><em>Jean Forteroche</em></p>
         <h1 style="font-size:4em; margin-top: 120px"><strong>Billet simple pour l'Alaska</strong></h1>

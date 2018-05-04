@@ -1,4 +1,4 @@
-<?php require __DIR__.'/../../Frontend/Templates/layout.php'; ?>
+<?php require __DIR__.'/../../../App/Frontend/Templates/layout.php'; ?>
 
 <style>
     /* masque le footer sur l'IHM admin */
@@ -6,3 +6,5 @@
         display: none;
     }
 </style>
+    
+

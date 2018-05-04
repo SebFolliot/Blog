@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="padding-bottom: 300px">
     
     <section class="col-md-12">
         <form class="well" action="" method="post">

@@ -56,7 +56,7 @@
         <?php
         foreach ($listeChapters as $chapters)
         {
-          echo '<tr><td>', $chapters['auteur'], '</td><td>', $chapters['titre'], '</td><td>', $chapters['dateAjout']->format('d/m/Y à H\hi'), '</td><td class="date_modif>', ($chapters['dateAjout'] == $chapters['dateModif'] ? '-' :  $chapters['dateModif']->format('d/m/Y à H\hi')), '</td><td><a href="chapters-update-', $chapters['id'], '.html"><i class="fas fa-edit" title="Modifier"></i></a><a onClick="delete_chapter(', $chapters['id'],')"<i class="fas fa-eraser" title="Supprimer"></i></a></td></tr>', "\n";
+          echo '<tr><td>', $chapters['auteur'], '</td><td>', $chapters['titre'], '</td><td>', $chapters['dateAjout']->format('d/m/Y à H\hi'), '</td><td class="date_modif">', ($chapters['dateAjout'] == $chapters['dateModif'] ? '-' :  $chapters['dateModif']->format('d/m/Y à H\hi')), '</td><td><a href="chapters-update-', $chapters['id'], '.html"><i class="fas fa-edit" title="Modifier"></i></a><a onClick="delete_chapter(', $chapters['id'],')"<i class="fas fa-eraser" title="Supprimer"></i></a></td></tr>', "\n";
             
          }
         ?>

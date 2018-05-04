@@ -252,7 +252,8 @@
         </section>
 
         <!-- footer -->
-        <?php require('footer.php'); ?>
+        <?php if ($user->isAuthenticated()) {}
+        else { require('footer.php'); } ?>
     
     
 

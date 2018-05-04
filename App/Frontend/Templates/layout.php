@@ -6,7 +6,7 @@
             <?= isset($title) ? $title : 'Blog de Jean FORTEROCHE' ?>
         </title>
 
-        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
 
         <!-- règle pour que le viewport mobile soit le même que la largeur de l'écran  -->
         <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+
+RewriteEngine On
+
+RewriteBase /
+
+RewriteRule ^admin/ /Web/bootstrap.php?app=Backend [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.*)$ /Web/bootstrap.php?app=Frontend [QSA,L]

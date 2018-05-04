@@ -69,8 +69,8 @@ header .fa-times,
         margin-left: 10px !important;
         margin-right: 10px !important;
     }
-
-    .date_modif {
+    
+   .date_modif {
         display: none;
     }
 
@@ -103,4 +103,5 @@ header .fa-times,
     .dropdown-menu {
         font-size: 10px !important;
     }
+
 }

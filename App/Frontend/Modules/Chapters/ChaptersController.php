@@ -65,7 +65,6 @@ class ChaptersController extends BackController
  
   public function executeInsertComment(HTTPRequest $request)
   {
-    $secret = $this->app->config()->get('secret_key');
     // Si le formulaire a été envoyé.
     if ($request->method() == 'POST')
     {
@@ -94,16 +93,17 @@ class ChaptersController extends BackController
       $this->app->httpResponse()->redirect('chapters-'.$request->getData('chapters').'.html');
     }
       
- 
+    $this->page->addVar('title', 'Ajout d\'un commentaire');
     $this->page->addVar('comment', $comment);
     $this->page->addVar('form', $form->createView());
     $chapters = $this->managers->getManagerOf('Chapters')->getUnique($request->getData('id'));  
     $this->page->addVar('chapters', $chapters);
     $nombreChapters = $this->app->config()->get('nombre_chapters');
     $manager = $this->managers->getManagerOf('Chapters');
-    $listeChapters = $manager->getList(0, $nombreChapters);  
-    $this->page->addVar('listeChapters', $listeChapters);
-    $this->page->addVar('title', 'Ajout d\'un commentaire');
+    $listeChapters = $manager->getList(0, $nombreChapters); 
+    $this->page->addVar('listeChapters', $listeChapters); 
+      
+    
   }
     // signaler un commentaire
     public function executeReportComment(HTTPRequest $request)

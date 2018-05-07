@@ -45,7 +45,7 @@ foreach ($listeChapters as $chapters)
             </a>
         </h2>
 
-        <p class="row col-md-12" style="padding-bottom: 30px">
+        <p style="padding-bottom: 30px; margin: 0 10px">
             <?= nl2br($chapters['contenu']) ?> <a href="chapters-<?= $chapters['id'] ?>.html"><em>Lire la suite / Commentaire</em></a>
         </p>
     </div>

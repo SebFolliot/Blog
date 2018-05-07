@@ -237,7 +237,7 @@
                     </ul>
       
                         <?php if ($user->isAuthenticated()) { ?>
-                    <div style="display: flex; justify-content: flex-end"><span style="margin-right: 10px">Jean FORTEROCHE</span><a href="Web/disconnect.php"><i class="fas fa-power-off" title="Se déconnecter" style="color: grey"></i></a></div>
+                    <div style="display: flex; justify-content: flex-end"><span style="margin-right: 10px">Jean FORTEROCHE</span><a href="../Web/disconnect.php"><i class="fas fa-power-off" title="Se déconnecter" style="color: grey"></i></a></div>
    
                     <?php } ?>
                  

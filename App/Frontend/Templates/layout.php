@@ -31,7 +31,7 @@
         <!-- fichiers style css -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="Web/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="../Web/css/style.css" type="text/css" />
 
         <!-- style css -->
         <style>
@@ -81,96 +81,11 @@
                 border-color: lightgray !important;
             }
             
-            header .fa-bars,
-            header .fa-times,
-            [type=checkbox] {
-            /* on masque le menu qui servira pour la version mobile/tablette */
-            display: none;
-            }
-            
-            /* Tout type d'écran dont la largeur fait au maximum 768px), type tablette */
-
-            @media all and (max-width: 767px) {
-
-                /* Menu de navigation */
-                header .fa-bars {
-                    display: block;
-                    font-size: 2em;
-                    cursor: pointer;
-                    margin-top: 10px;
-                    color: grey;
-                }
-
-                header .fa-times {
-                    display: none;
-                    font-size: 2em;
-                    cursor: pointer;
-                    color: grey;
-                }
-
-                header .list_menu {
-                    /* On masque le menu  */
-                    display: none;
-                }
-
-                #menu_hamburger:checked ~ .list_menu {
-                    /* on affiche le menu déroulant lorsqu'on coche "la case" du menu hamburger */
-                    display: block;
-                }
-
-                .list_menu li {
-                    border-bottom: 1px solid silver;
-                    line-height: 2em;
-                    font-size: 1.5em;
-                    text-align: left;
-                }
-
-                #footer_title {
-                    margin-left: 10px !important;
-                    margin-right: 10px !important;
-                }
-
-                .date_modif {
-                    display: none;
-                }
-
-            }
-
-            /* Tout type d'écran dont la largeur fait au maximum 360px), type mobile */
-
-            @media all and (max-width: 360px) {
-
-                #footer_title {
-                    font-size: 12px;
-                }
-
-                .img-thumbnail {
-                    display: none;
-                }
-
-                #chapter_table {
-                    font-size: 13px !important;
-                }
-
-                #table_title {
-                    font-size: 20px;
-                }
-
-                #text_field {
-                    width: auto !important;
-                }
-
-                .dropdown-menu {
-                    font-size: 10px !important;
-                }
-            }
-
-
         </style>
     
 
         <!-- WYSIWYG tinymce -->
-        <script type="text/javascript" src="Web/js/tinymce/tinymce.min.js"></script>
+        <script type="text/javascript" src="../Web/js/tinymce/tinymce.min.js"></script>
         <script type="text/javascript">
             tinymce.init({
                 selector: '#jftextarea',
@@ -258,12 +173,12 @@
     
 
         <!-- script js -->
-        <script type="text/javascript" src="Web/js/jquery-3.2.1.js"></script>
+        <script type="text/javascript" src="../Web/js/jquery-3.2.1.js"></script>
         <!-- utilisation d'un CDN pour charger la version 3.3.4 -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="Web/js/top.js"></script>
-        <script type="text/javascript" src="Web/js/image.js"></script>
-        <script type="text/javascript" src="Web/js/hamburger_menu.js"></script>
+        <script type="text/javascript" src="../Web/js/top.js"></script>
+        <script type="text/javascript" src="../Web/js/image.js"></script>
+        <script type="text/javascript" src="../Web/js/hamburger_menu.js"></script>
 
 
     </body>

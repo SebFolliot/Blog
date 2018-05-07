@@ -39,7 +39,7 @@ foreach ($listeChapters as $chapters)
 {
 ?>
     <div class="container">
-        <h2 class="row" style="margin: 10px 10px 0 10px">
+        <h2 class="row" style="margin: 30px 0 0 0; text-align: center">
             <a href="chapters-<?= $chapters['id'] ?>.html">
                 <?= $chapters['titre'] ?>
             </a>

@@ -80,6 +80,23 @@
             .mce-btn {
                 border-color: lightgray !important;
             }
+            /* Tout type d'écran dont la largeur fait au maximum 768px), type tablette */
+
+            @media all and (max-width: 767px) {
+                #message {
+                    width: 400px !important;
+                }
+            }
+            
+            /* Tout type d'écran dont la largeur fait au maximum 768px), type tablette */
+
+            @media all and (max-width: 500px) {
+                #name, #email, #subject {
+                    width: auto !important;
+                }
+                #message {
+                    width: 200px !important;
+            }
             
         </style>
     
@@ -143,8 +160,11 @@
                                     <?php } ?>
                             </ul>
                         </li>
-             
-                        <?php if ($user->isAuthenticated()) { ?>
+                        <?php if ($user->isAuthenticated()) {    
+                        } else { ?>
+                        <li <?=isActive( '/contact.html'); ?>><a href="/contact.html">Contact</a></li>
+                        <?php }
+                        if ($user->isAuthenticated()) { ?>
                         <li <?=isActive( '/admin/'); ?>> <a href="/admin/" title="Administration des chapitres">Admin</a></li>
                         <li <?=isActive( '/admin/chapters-insert.html'); ?>><a href="/admin/chapters-insert.html" title="Ajouter un chapitre">Ajouter un chapitre</a></li>
                         <?php } ?>

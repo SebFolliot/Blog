@@ -1,6 +1,6 @@
 <div class="container" style="padding-bottom: 300px">
     
-    <section class="col-md-12">
+    <section class="col-md-12" style="margin-top: 100px">
         <form class="well" action="" method="post">
             <legend>
                 <h2>Connexion à l'interface administrateur</h2>
